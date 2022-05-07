@@ -1,3 +1,6 @@
+import bodyParser from 'body-parser'
+import session from 'express-session'
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -61,5 +64,19 @@ export default {
   // env config
   env: {
     baseURL: process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8080'
-  }
+  },
+  // router: {
+  //   middleware: 'auth'
+  // },
+  serverMiddleware: [
+    // body-parser middleware
+    bodyParser.json(),
+    // session middleware
+    session({
+      secret: 'super-secret-key',
+      saveUninitialized: false,
+      cookie: { maxAge: 60000 }
+    }),
+    '~/apis'
+  ]
 }

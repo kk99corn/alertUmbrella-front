@@ -24,6 +24,7 @@
             type="password"
             class="form-control rounded-4"
             placeholder="Password"
+            @keyup.enter="doLogin"
           >
           <label for="memberPassword">Password</label>
         </div>
@@ -35,8 +36,6 @@
 </template>
 
 <script>
-import {loginCheck} from "../api";
-
 export default {
   name: 'Login',
   data() {
@@ -61,13 +60,16 @@ export default {
         return false
       }
 
-      // id check
-      const memberIdCheck = await loginCheck(formId, formPass)
-      if (memberIdCheck.data.status === 200 || memberIdCheck.data.data.name != null) {
-        alert(memberIdCheck.data.data.name + " login suc")
-      } else {
-        alert("login failed")
-      }
+      await this.$store.dispatch('login', {
+        id: formId,
+        pass: formPass
+      }).then((res) => {
+        //
+        this.$router.push('/')
+      }).catch((error) => {
+        //
+        alert("계정이나 패스워드를 확인해주세요.")
+      })
     }
   }
 }

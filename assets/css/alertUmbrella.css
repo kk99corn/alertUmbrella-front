@@ -9,3 +9,9 @@
 .umb-text-bold {
   font-weight: bold;
 }
+
+.umb-footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+}
