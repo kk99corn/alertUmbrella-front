@@ -15,3 +15,12 @@
   bottom: 0;
   text-align: center;
 }
+
+.umb-content-margin {
+  margin-top: 50px;
+}
+
+.umb-bg-img {
+  /*background-image: url("~/static/img/rain.jpg");*/
+  padding-top: 30px;
+}
