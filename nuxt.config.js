@@ -75,7 +75,7 @@ export default {
     session({
       secret: 'super-secret-key',
       saveUninitialized: false,
-      cookie: { maxAge: 60000 }
+      cookie: { maxAge: 0 }
     }),
     '~/apis'
   ]
