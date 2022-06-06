@@ -21,16 +21,13 @@ function getMemberById(id) {
   })
 }
 
-// post queryString
-// function joinMember(id, name, pass) {
-//   return instance.post('/member', null,{
-//     params: {
-//       id: id,
-//       name: name,
-//       password: pass
-//     }
-//   })
-// }
+function getAreaDetail(areaSeq) {
+  return instance.get('/areaDetail', {
+    params: {
+      areaSeq: areaSeq
+    }
+  })
+}
 
 // post FormData
 function joinMember(id, name, pass) {
@@ -42,14 +39,9 @@ function joinMember(id, name, pass) {
   return instance.post('/member', form)
 }
 
-
-function joinMember2() {
-  return instance.post('/member2')
-}
-
 export {
   loginCheck,
   getMemberById,
   joinMember,
-  joinMember2
+  getAreaDetail
 }
